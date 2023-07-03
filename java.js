@@ -7,7 +7,7 @@ function getElement(id) {
 }
 
 function winMessage() {
-    //Display message when player gets combo, if not hide the message// 
+    //Display message when player gets combo, if not hide the message// al;sdfas;ldfjadklf
 }
 
 function spin() {

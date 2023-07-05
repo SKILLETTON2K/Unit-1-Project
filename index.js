@@ -20,10 +20,10 @@ function hideMessage() {
     document.getElementById("winMessage").hidden = true
 }
 
-function hiddenMessage() {
-    const msg = document.getElementsByClassName("wagerMessage");
-    document.getElementsByClassName("wagerMessage").hidden = true
-}
+// function hiddenMessage() {
+//     const msg = document.getElementsByClassName("wagerMessage");
+//     document.getElementsByClassName("wagerMessage").hidden = true
+// }
 
 function checkMoney() {
     var money = parseInt(document.getElementsByName('money')[0].value)
@@ -62,28 +62,44 @@ function spin() {
 
 var money = parseInt(document.getElementsByName('money')[0].value);
 
+const cantBeOtherElement = document.getElementById("cantBeOther");
+const cantBeZeroElement = document.getElementById("cantBeZero");
+const toHigh = document.getElementById("toHigh");
+
 function checkWager() {
     var wager = parseInt(document.getElementsByName('wager')[0].value)
     if (isNaN(wager)){
-        const msg = document.getElementById("cantBeOther");
-        document.getElementById("cantBeOther").hidden = false
+        cantBeOtherElement.classList.remove("wagerMessageHidden");
+        cantBeOtherElement.classList.add("wagerClass");
+        cantBeZeroElement.classList.remove("wagerClass");
+        cantBeZeroElement.classList.add("wagerMessageHidden");
+        toHigh.classList.remove("wagerClass")
+        toHigh.classList.add("wagerMessageHidden");
     } else {
         if (wager <= 0){
-            const msg = document.getElementById("cantBeZero");
-            document.getElementById("cantBeZero").hidden = false
+            cantBeOtherElement.classList.remove("wagerClass");
+            cantBeOtherElement.classList.add("wagerMessageHidden");
+            cantBeZeroElement.classList.remove("wagerMessageHidden");
+            cantBeZeroElement.classList.add("wagerClass");
+            toHigh.classList.remove("wagerClass")
+            toHigh.classList.add("wagerMessageHidden");
         } else {
             if(wager > parseInt(document.getElementsByName('money')[0].value)){
-                const msg = document.getElementById("toHigh");
-                document.getElementById("toHigh").hidden = false
+                cantBeOtherElement.classList.remove("wagerClass");
+                cantBeOtherElement.classList.add("wagerMessageHidden");
+                cantBeZeroElement.classList.remove("wagerClass");
+                cantBeZeroElement.classList.add("wagerMessageHidden");
+                toHigh.classList.remove("wagerMessageHidden")
+                toHigh.classList.add("wagerClass");
             } else {
-                hiddenMessage();
-            }		
+                // hiddenMessage("");
+            }
         }
     }
 }
 
 function watchAd() {
-    document.getElementsByName('money').value = money + 30;
+    document.getElementsByName('money')[0].value = money + 30;
     alert('Thank you for watching our sponsor!');
     console.log(money+30);
 }

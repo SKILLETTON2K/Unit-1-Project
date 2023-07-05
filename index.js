@@ -32,11 +32,13 @@ function checkMoney() {
 
 function spin() {
 
+    const startButtonElement = document.getElementById("startButton");
     var wager = parseInt(document.getElementsByName('wager')[0].value);
     var money = parseInt(document.getElementsByName('money')[0].value);
 
-    if (money > 0) 
+    if (money > 0) {
     document.getElementsByName('money')[0].value = money - wager;
+    }
 
     const numb1 = getRandomNumber();
     const numb2 = getRandomNumber();
@@ -56,6 +58,13 @@ function spin() {
     } else {
         hideMessage();
     }
+
+    if (money <= 0) {
+    startButtonElement.classList.add(".startButtonFalse");
+    } else {
+        startButtonElement.classList.remove(".startButtonFalse");
+    }
+    console.log(document.getElementsByName('money')[0].value);
 }
 
 //========================================================================//

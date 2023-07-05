@@ -6,13 +6,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="index.js"></script>
     <title>Slot Machine Project 1</title>
 </head>
 <body>
     <div id="main">
         <h1>Slots'O'Matic</h1>
-        <p>Press the button to begin!</p>
+        <p>Press the Play button to begin!</p>
 
     </div>
 
@@ -24,21 +25,41 @@
     </section>
 
     <section id="buttons">
-        <button type="button" id="startButton" onclick="spin()">Remove me after CSS</button>
-        <button id="fakeAd" onclick="">Watch AD</button>
+        <button type="button" class="startButton" onclick="spin()">Play</button>
+        <button id="fakeAd" onclick="watchAd()">Watch AD</button>
     </section>
 
-    <message id="winMsg" class="center message">
+    <wage><input type="text" onchange="checkWager()" style="width: 100px" name="wager" value="1"></wage>
+
+    <bank><input type="text" onchange="checkMoney()" style="width: 100px" name="money" value="10"></bank>
+
+<!-- -----------------------MESSAGES------------------------ -->
+
+    <message id="winMessage">
         You got a Combo!
-    </message>    
+    </message> 
+    
+    <message id="cantBeOther" class="wagerMessage">
+        You can only put money in for a bet!
+    </message>
 
-    <audio src="">
+    <message id="cantBeZero" class="wagerMessage">
+        You need to bet more than 0!
+    </message>
 
-    </audio>
+    <message id="toHigh" class="wagerMessage">
+        You don't have that much to wager!
+    </message>
 
-    <section id="bank">
-        
-    </section>
+<!-- -----------------------AUDIO------------------------ -->
+
+    <!-- <audio id="jackpot">
+
+    <source src="magicCoin.mp3" type="audio/mpeg">
+    <source src="magicCoin.wav" type="audio/mpeg">
+
+    </audio> -->
+
 </body>
 </html>
 

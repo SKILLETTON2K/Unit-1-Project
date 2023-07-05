@@ -1,3 +1,7 @@
+const startButtonEl = document.getElementById('startButton');
+const cash = parseInt(document.getElementsByName('money')[0].value);
+const bet = parseInt(document.getElementsByName('wager')[0].value);
+
 function getRandomNumber() {
     return Math.floor(Math.random() * 4) +1;
 }
@@ -20,14 +24,9 @@ function hideMessage() {
     document.getElementById("winMessage").hidden = true
 }
 
-// function hiddenMessage() {
-//     const msg = document.getElementsByClassName("wagerMessage");
-//     document.getElementsByClassName("wagerMessage").hidden = true
-// }
 
-function checkMoney() {
-    var money = parseInt(document.getElementsByName('money')[0].value)
-}
+
+
 //========================================================================//
 
 function spin() {
@@ -36,8 +35,12 @@ function spin() {
     var wager = parseInt(document.getElementsByName('wager')[0].value);
     var money = parseInt(document.getElementsByName('money')[0].value);
 
-    if (money > 0) {
-    document.getElementsByName('money')[0].value = money - wager;
+    if (wager > money) {
+        return; 
+    }
+
+    if (money <= 0) {
+        startButtonElement.classList.add("startButtonFalse");
     }
 
     const numb1 = getRandomNumber();
@@ -59,12 +62,9 @@ function spin() {
         hideMessage();
     }
 
-    if (money <= 0) {
-    startButtonElement.classList.add(".startButtonFalse");
-    } else {
-        startButtonElement.classList.remove(".startButtonFalse");
-    }
-    console.log(document.getElementsByName('money')[0].value);
+    if (money > 0) {
+        document.getElementsByName('money')[0].value = money - wager;
+        }
 }
 
 //========================================================================//
@@ -108,7 +108,9 @@ function checkWager() {
 }
 
 function watchAd() {
-    document.getElementsByName('money')[0].value = money + 30;
+    document.getElementsByName('money')[0].value = money + 5;
     alert('Thank you for watching our sponsor!');
-    console.log(money+30);
+    if (cash > 0) {
+    startButtonEl.classList.remove("startButtonFalse");
+    }
 }

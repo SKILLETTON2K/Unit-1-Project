@@ -24,9 +24,6 @@ function hideMessage() {
     document.getElementById("winMessage").hidden = true
 }
 
-
-
-
 //========================================================================//
 
 function spin() {
@@ -35,10 +32,6 @@ function spin() {
     var wager = parseInt(document.getElementsByName('wager')[0].value);
     var money = parseInt(document.getElementsByName('money')[0].value);
 
-    if (isNaN(wager)){
-        return;
-    }
-
     if (wager > money) {
         return; 
     }
@@ -46,6 +39,10 @@ function spin() {
     if (money <= 0) {
         startButtonElement.classList.add("startButtonFalse");
     }
+
+    if (money > 0) {
+        document.getElementsByName('money')[0].value = money - wager;
+        }
 
     const numb1 = getRandomNumber();
     const numb2 = getRandomNumber();
@@ -62,17 +59,13 @@ function spin() {
     if (numb1 == numb2 && numb1 === numb3) {
         winMessage();
         document.getElementsByName('money')[0].value = money + (3 * wager);
+        console.log(3 * wager + ' this is wager');
     } else {
         hideMessage();
     }
-
-    if (money > 0) {
-        document.getElementsByName('money')[0].value = money - wager;
-        }
 }
 
 //========================================================================//
-
 var money = parseInt(document.getElementsByName('money')[0].value);
 
 const cantBeOtherElement = document.getElementById("cantBeOther");

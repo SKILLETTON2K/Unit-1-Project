@@ -9,7 +9,7 @@
 JavaScript, HTML, CSS.
 
 <----LINK---->
-[http://127.0.0.1:5500/index.html](https://skilletton2k.github.io/Unit-1-Project/)  
+(https://skilletton2k.github.io/Unit-1-Project/)  
 
 Instructions: Just click play and enjoy! Try not to run out of tokens!
 

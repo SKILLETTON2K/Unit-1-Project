@@ -59,7 +59,6 @@ function spin() {
     if (numb1 == numb2 && numb1 === numb3) {
         winMessage();
         document.getElementsByName('money')[0].value = money + (3 * wager);
-        console.log(3 * wager + ' this is wager');
     } else {
         hideMessage();
     }

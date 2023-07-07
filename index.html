@@ -9,31 +9,45 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js"></script>
     <title>Slot Machine Project 1</title>
+    <section id="ad"><button id="fakeAd" onclick="watchAd()">Watch AD</button></section>
 </head>
 <body>
     <div id="main">
-        <h1>Slots'O'Matic</h1>
+        <h1>Slots'O'Matic
+        </h1>
         <p>Press the Play button to begin!</p>
-
     </div>
+
+    <section class="img">
+    <img src="./pacMan.jpeg" alt="Slot Machine"/>
+    </section>
 
     <section id="slots">
         <span id="line1" class="slot-number">_</span>
         <span id="line2" class="slot-number">_</span>
         <span id="line3" class="slot-number">_</span>
-
     </section>
 
     <section id="buttons">
-        <button type="button" id="startButton" onclick="spin()">Play</button>
-        <button id="fakeAd" onclick="watchAd()">Watch AD</button>
+        <button type="button" id="startButton" class="classStartButton" onclick="spin()">Play</button>
     </section>
 
-    <wage><input type="text" onchange="checkWager()" style="width: 100px" name="wager" value="1"></wage>
+    <div class="inputs">
 
-    <bank><input type="text" onchange="checkMoney()" style="width: 100px" name="money" value="20"></bank>
+        <p id="wagerBox">Wager</p> 
+        <wage id="wagerInput">
+            <input class="removeLine" type="text" onchange="checkWager()" name="wager" value="1">
+        </wage>
 
+        <bank id="bankInput">
+            <input class="removeLine" type="text" onchange="checkMoney()" name="money" value="20">
+        </bank>
+
+        <p id="bankBox">Tokens</p>
+    </div>
 <!-- -----------------------MESSAGES------------------------ -->
+<section class="notif">
+
 
     <message id="winMessage">
         You got a Combo!
@@ -51,19 +65,15 @@
         You don't have that much to wager!
     </message>
 
-<!-- -----------------------AUDIO------------------------ -->
-
-    <!-- <audio id="jackpot">
-
-    <source src="magicCoin.mp3" type="audio/mpeg">
-    <source src="magicCoin.wav" type="audio/mpeg">
-
-    </audio> -->
-
+    <message id="outOfMoney" class="wagerMessageHidden">
+        You ran out of money! Please head towards the exit, or watch an AD to keep playing! 
+    </message>
+</section>
 </body>
 </html>
 
+<!-- -----------------------SOURCES------------------------ -->
 
+<!-- Source For Background Image: https://www.pxfuel.com/en/desktop-wallpaper-ormdj -->
 <!-- Source For Icons: https://www.vecteezy.com/vector-art/688201-fruit-icon-set -->
-<!-- Source For Sound Effect: https://mixkit.co/free-sound-effects/slot-machine/ -->
-<!-- Source For Money Bag Icon: https://www.vector4free.com/free-vector-money-bag-icon-31489 -->
+<!-- Source For Pulse Animation Lesson: https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ -->

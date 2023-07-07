@@ -35,6 +35,10 @@ function spin() {
     var wager = parseInt(document.getElementsByName('wager')[0].value);
     var money = parseInt(document.getElementsByName('money')[0].value);
 
+    if (isNaN(wager)){
+        return;
+    }
+
     if (wager > money) {
         return; 
     }
@@ -101,11 +105,16 @@ function checkWager() {
                 toHigh.classList.remove("wagerMessageHidden")
                 toHigh.classList.add("wagerClass");
             } else {
-                // hiddenMessage("");
+                    cantBeOtherElement.classList.remove("wagerClass");
+                    cantBeOtherElement.classList.add("wagerMessageHidden");
+                    cantBeZeroElement.classList.remove("wagerClass");
+                    cantBeZeroElement.classList.add("wagerMessageHidden");
+                    toHigh.classList.remove("wagerClass")
+                    toHigh.classList.add("wagerMessageHidden");
+                }
             }
         }
     }
-}
 
 function watchAd() {
     document.getElementsByName('money')[0].value = money + 5;
